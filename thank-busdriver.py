@@ -1,7 +1,3 @@
-"""
-  Fortnite for AFK: Thank the busdriver for the milestone
-  This bot will loop joining Battle Royale games and thank the busdriver returning to the lobby. 
-"""
 import os
 import sys
 import psutil
@@ -117,7 +113,14 @@ class FortniteCheatEngine:
 		pyautogui.click()
 
 		# Close any modal
-		image = self.waitForImage('close-button.png', 8)
+		image = self.waitForImage('close-button.png', 20)
+		if image != None:
+			pyautogui.moveTo(image.left+10, image.top+10, duration=0, tween=pyautogui.easeInOutQuad)
+			pyautogui.click()
+		else:
+			print("Cannot find close button")
+
+		image = self.waitForImage('claim.png', 3)
 		if image != None:
 			pyautogui.moveTo(image.left+10, image.top+10, duration=0, tween=pyautogui.easeInOutQuad)
 			pyautogui.click()
